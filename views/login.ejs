@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>O'Auth 2.0 visualisation project</title>
+		<meta charset="utf-8" />
+		<title>Login</title>
 		<style>
 			body {
 				font-family: arial;
@@ -38,24 +37,32 @@
 				padding: 0 10px;
 				color: #333;
 			}
+
+			.google-btn {
+				display: block;
+				width: 250px;
+			}
+
+			.google-btn > img {
+				width: 100%;
+			}
 		</style>
 	</head>
 	<body>
-		<body>
-			<nav>
-				<ul>
-					<li><a href="/auth/logout">Logout</a></li>
-					<li><a href="/auth/login">Login</a></li>
-					<li><a href="/">Homepage</a></li>
-				</ul>
-			</nav>
-			<header>
-				<h1>O'Auth 2.0 visualisation</h1>
-				<h2>Homepage</h2>
-			</header>
-			<main>
-				<p>There it'll be</p>
-			</main>
-		</body>
+		<nav>
+			<ul>
+				<li><a href="/auth/logout">Logout</a></li>
+				<li><a href="/auth/login">Login</a></li>
+				<li><a href="/">Homepage</a></li>
+			</ul>
+		</nav>
+		<header>
+			<h1>Login using...</h1>
+		</header>
+		<main>
+			<a href="/auth/google" class="google-btn">
+				<img src="/static/google_btn.png" />
+			</a>
+		</main>
 	</body>
 </html>
