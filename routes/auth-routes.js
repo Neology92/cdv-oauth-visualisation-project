@@ -27,7 +27,7 @@ router.get(
 		failureRedirect: '/auth/login',
 	}),
 	(req, res) => {
-		res.send(req.user);
+		res.redirect('/profile');
 	}
 );
 
