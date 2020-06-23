@@ -1,0 +1,16 @@
+{
+	"name": "oauth-project",
+	"version": "1.0.0",
+	"description": "Simple O'auth 2.0 authorization explaining project.",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Oskar Legner",
+	"license": "MIT",
+	"dependencies": {
+		"ejs": "^3.1.3",
+		"express": "^4.17.1"
+	},
+	"devDependencies": {}
+}
