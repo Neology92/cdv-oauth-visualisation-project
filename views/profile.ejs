@@ -38,6 +38,17 @@
 				padding: 0 10px;
 				color: #333;
 			}
+
+			header {
+				display: grid;
+				grid-template-columns: 1fr 5fr;
+			}
+
+			.thumbnail {
+				border-radius: 50%;
+				width: 100px;
+				height: 100px;
+			}
 		</style>
 	</head>
 	<body>
@@ -54,11 +65,14 @@
 				</ul>
 			</nav>
 			<header>
-				<h1>Welcome to your profile, <%= user.username %></h1>
+				<div>
+					<img class="thumbnail" src="<%= user.thumbnail %>" />
+				</div>
+				<div>
+					<h1>Welcome to your profile, <%= user.username %></h1>
+				</div>
 			</header>
-			<main>
-				content?
-			</main>
+			<main></main>
 		</body>
 	</body>
 </html>
