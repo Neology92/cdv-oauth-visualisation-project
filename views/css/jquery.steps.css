@@ -41,7 +41,7 @@
 }
 
 /*
-    Wizard
+Wizard
 */
 
 .wizard > .steps {
@@ -107,8 +107,8 @@
 .wizard > .steps .done a,
 .wizard > .steps .done a:hover,
 .wizard > .steps .done a:active {
-	background: #a5a5a5;
-	color: #fff;
+	background: #eee;
+	color: #aaa;
 }
 
 .wizard > .steps .error a,
@@ -122,7 +122,7 @@
 	background: #eee;
 	display: block;
 	margin: 0.5em;
-	min-height: 35em;
+	min-height: 15em;
 	overflow: hidden;
 	position: relative;
 	width: auto;
