@@ -1,8 +1,14 @@
 const router = require('express').Router();
 const passport = require('passport');
+const memoryCache = require('../memoryCache');
+
+const notAuthCheck = (req, res, next) => {
+	if (req.user) res.redirect('/');
+	else next();
+};
 
 // auth login
-router.get('/login', (req, res) => {
+router.get('/login', notAuthCheck, (req, res) => {
 	res.render('login', { user: req.user });
 });
 
@@ -27,7 +33,12 @@ router.get(
 		failureRedirect: '/auth/login',
 	}),
 	(req, res) => {
-		res.redirect('/profile');
+		res.render('redirect', {
+			user: req.user,
+			profile: memoryCache.get('googleProfile'),
+			accessToken: memoryCache.get('accessToken'),
+		});
+		// 	res.redirect('/profile');
 	}
 );
 

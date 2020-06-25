@@ -44,6 +44,14 @@ app.get('/', (req, res) => {
 });
 
 app.use('/static', express.static(path.join(__dirname, 'assets')));
+app.use('/css', express.static(path.join(__dirname, 'views', 'css')));
+app.use(
+	'/auth/google/css',
+	express.static(path.join(__dirname, 'views', 'css'))
+);
+app.use('/js', express.static(path.join(__dirname, 'views', 'js')));
+app.use('/js/auth', express.static(path.join(__dirname, 'views', 'js')));
+app.use('/js/auth/google', express.static(path.join(__dirname, 'views', 'js')));
 
 app.listen(3000, () => {
 	console.log('App listening on port 3000');

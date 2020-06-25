@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>O'Auth 2.0 visualisation project</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="js/jquery.steps.min.js" />
+	</head>
+	<body>
+		<header>
+			<h2>You've been redirected</h2>
+		</header>
+
+		<main>
+			<pre>
+					<code>
+						<% if(user) { %>
+							<p><%= user %></p>
+						<% } %>
+
+						<% if(profile) { %>
+							<p><%= JSON.stringify(profile, null, ' ') %></p>
+						<% } %>
+
+						<% if(accessToken) { %>
+							<p><%= accessToken %></p>
+						<% } %>
+					</code>
+				</pre>
+			<nav>
+				<ul>
+					<li><a href="/profile">Profile</a></li>
+				</ul>
+			</nav>
+		</main>
+	</body>
+</html>
