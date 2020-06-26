@@ -48,6 +48,7 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	margin-bottom: 50px;
 }
 
 .google-btn {

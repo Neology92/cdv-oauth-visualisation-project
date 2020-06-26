@@ -3,7 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/jquery.steps.css" />
+		<script src="js/jquery.steps.min.js"></script>
 		<title>O'Auth 2.0 visualisation project</title>
 	</head>
 	<body>
@@ -26,6 +29,76 @@
 				<h1>Welcome to your profile, <%= user.username %></h1>
 			</div>
 		</header>
-		<main></main>
+		<main>
+			<div id="stepper">
+				<h3>Cookies</h3>
+				<section>
+					<p>
+						So what's about the cookies. I think we should take a look at the topic. <br/> <br/>
+						1. Click ctrl + shift + i<br/> <br/>
+						2. At top menu - switch to "Network" tab.<br/> <br/>
+						3. Refresh the page.<br/> <br/>
+						4. In incoming files there should be "profile". Click it.<br/> <br/>
+						5. Find "Request Headers" tab and "Cookie" point.<br/> <br/>
+						express:sess' value looks like random string of letters and numbers. 
+						But there happends the magic. In this string is your encrypted user-id.
+						You can check this in the moment by logging out and looking at this cookie.
+						It'll be noticeably shorter.
+					</p>
+				</section>
+				<h3>Flow</h3>
+				<section>
+					<p>
+						As I told you - cookie with encrypted ID is sent to server. 
+						There it is decrypted. Having deserialized your account, 
+						server builds page look and sends it to you.<br/> <br/>
+						If server recieve cookie without encrypted ID, 
+						or account is not serialized ont he server side before request 
+						- it'll build page look for non logged-in user, or will redirect you to homepage (us we do).<br/> <br/>
+					</p>
+				</section>
+				<h3>Your account</h3>
+				<section>
+					<p>
+						Fortunately we deserialized your account and send you your profile page.
+						Information you see on the top is generated from your account data.
+						We're storing account as this JSON:
+						
+						<pre>
+							<code>
+									<p><%= user %></p>
+							</code>
+						</pre>
+					</p>
+				</section>
+				<h3>Logout</h3>
+				<section>
+					<p>
+						If you click "Logout" button - we just remove your acc from seriazlized at server side
+						and remove id from your cookie. That's all. Next time you log-in we'll just download data
+						from DB and repeat previous steps.<br/> <br/>
+						If you won't log-out, the cookie in your browser will be valid for 24 hours. After this time
+						you'll be automatically logged-out.<br/> <br/>
+						That's all. I hope everything was clear and easy explained.
+						
+						<nav>
+							<ul>
+								<li><a href="/auth/logout">Logout</a></li>
+							</ul>
+						</nav>
+						
+					</p>
+				</section>
+			</div>
+		</main>
 	</body>
+	<script>
+		$('#stepper').steps({
+			headerTag: 'h3',
+			bodyTag: 'section',
+			transitionEffect: 'slideLeft',
+			autoFocus: true,
+			stepsOrientation: 1,
+		});
+	</script>
 </html>

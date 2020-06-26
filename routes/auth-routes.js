@@ -35,7 +35,6 @@ router.get(
 	}),
 	(req, res) => {
 		res.render('redirect', {
-			user: req.user,
 			profile: memoryCache.get('googleProfile'),
 			accessToken: memoryCache.get('accessToken'),
 			client_id: secret.google.client_id,
