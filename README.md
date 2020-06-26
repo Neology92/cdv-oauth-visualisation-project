@@ -1,5 +1,5 @@
 # cdv-oauth-visualisation-project
-This project aims to visualise how O'Auth 2.0 works
+This project aims to visualise how authentication by O'Auth 2.0 works.
 
 # Usage
 You'll need node.js installed locally before start.
