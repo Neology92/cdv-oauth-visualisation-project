@@ -2,7 +2,7 @@
 This project aims to visualise how O'Auth 2.0 works
 
 # Usage
-You'll need node.js installed locally.
+You'll need node.js installed locally before start.
 
 1. Clone repo tom your local directory.
 2. Install node dependencies
