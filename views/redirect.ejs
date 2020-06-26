@@ -6,11 +6,17 @@
 		<title>O'Auth 2.0 visualisation project</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="js/jquery.steps.min.js" />
+		<style>
+			h2 {
+				color: white;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
-		<header>
+		<nav>
 			<h2>You've been redirected</h2>
-		</header>
+		</nav>
 
 		<main>
 			<pre>
@@ -33,6 +39,31 @@
 					<li><a href="/profile">Profile</a></li>
 				</ul>
 			</nav>
+
+			<div id="example-basic">
+				<h3>Intro</h3>
+				<section>
+					<p>
+						This app aims to explain process of authentication (also
+						using authorization) by O'Auth 2.0
+					</p>
+				</section>
+				<h3>First step</h3>
+				<section>
+					<p>
+						Go to "Login" page to start
+					</p>
+				</section>
+			</div>
 		</main>
 	</body>
+	<script>
+		$('#example-basic').steps({
+			headerTag: 'h3',
+			bodyTag: 'section',
+			transitionEffect: 'slideLeft',
+			autoFocus: true,
+			stepsOrientation: 1,
+		});
+	</script>
 </html>

@@ -82,10 +82,6 @@ Wizard
 	margin: 0 0.5em 0.5em;
 	padding: 1em 1em;
 	text-decoration: none;
-
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
 }
 
 .wizard > .steps .disabled a,
@@ -126,10 +122,6 @@ Wizard
 	overflow: hidden;
 	position: relative;
 	width: auto;
-
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
 }
 
 .wizard.vertical > .content {
@@ -222,10 +214,6 @@ Wizard
 	display: block;
 	padding: 0.5em 1em;
 	text-decoration: none;
-
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
 }
 
 .wizard > .actions .disabled a,

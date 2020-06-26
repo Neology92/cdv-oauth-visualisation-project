@@ -33,7 +33,7 @@ header {
 }
 
 section {
-	box-shadow: inset 2px 1px 1px #2624aa;
+	box-shadow: inset 1px 1px 1px #2624aa;
 	background: #0400fc23;
 	font-size: 20px;
 }
