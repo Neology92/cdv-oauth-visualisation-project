@@ -17,7 +17,7 @@ You can get these google data by turning on PeopleAPI at your developer account.
 ```javascript
 module.exports = {
 	google: {
-		client_id: <your_client_id>
+		client_id: <your_client_id>,
 		client_secret: <your_client_secret>
 	},
 	mongodb: {
