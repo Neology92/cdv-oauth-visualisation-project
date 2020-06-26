@@ -32,12 +32,6 @@ header {
 	color: #333;
 }
 
-section {
-	box-shadow: inset 1px 1px 1px #2624aa;
-	background: #0400fc23;
-	font-size: 20px;
-}
-
 .google-btn {
 	display: block;
 	width: 250px;
@@ -45,4 +39,8 @@ section {
 
 .google-btn > img {
 	width: 100%;
+}
+
+.unactive {
+	pointer-events: none;
 }

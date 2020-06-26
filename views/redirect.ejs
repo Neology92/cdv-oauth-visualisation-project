@@ -5,7 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>O'Auth 2.0 visualisation project</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="js/jquery.steps.min.js" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/jquery.steps.css" />
+		<script src="js/jquery.steps.min.js"></script>
 		<style>
 			h2 {
 				color: white;
@@ -19,42 +21,106 @@
 		</nav>
 
 		<main>
-			<pre>
+			<div id="example-basic">
+				<h3>What you've brought there</h3>
+				<section>
+					<p>
+						Yay! You came back. And take a look what you've brought
+						there. Google gave us special "code". <br/> <br/>Everything that is
+						behind <i>'?code='</i> in URL address is data send to us
+						by Google. It is not really powerful yet, because we
+						need also secret data that is on the app's server side,
+						to rule the world.
+					</p>
+				</section>
+				<h3>Secret data</h3>
+				<section>
+					<p>
+						The secret data is secret. I can show you ClientID, but there is also ClientSecret, 
+						which is our to secret (those works like a login and password)  <br/> <br/>
+						ClientID: <%= client_id %> <br/> <br/>
+						ClientSecret: "SECRET" <br/> <br/>
+						That's the data received by developer from Google during
+						writing application. It makes Google know, that this is
+						the app which user authorized to recieve his details.
+					</p>
+				</section>
+				<h3>Access token</h3>
+				<section>
+					<p>
+						Nice! We've contected Google and gave them the above
+						data and received code. Guess what. They sent us another
+						string. This one is called Access token.<br/> <br/> 
+						Access Token: 
+							<pre>
+									<%= accessToken %>
+							</pre> 
+						Now we have to make one more call.
+					</p>
+				</section>
+				<h3>Got it!</h3>
+				<section>
+					<p>
+						Now the access code is send to Google resource server with request to send your user-data.
+						They said that Token was valid and... uff... It's there. Your account data is in our hands. 
+						Not all the data of course. Just information which you allowed us to get. <br/> <br/>We've received that json:
+						<pre>
+							<code>
+								<% if(profile) { %>
+									<p><%= JSON.stringify(profile, null, ' ') %></p>
+								<% } %>
+							</code>
+						</pre>
+					</p>
+				</section>
+				<h3>Authentication</h3>
+				<section>
+					<p>
+						The most interesting part of the json is 'id'. It's unique and not changing for sepcific user. <br/> <br/>
+						Next step is to check if there is account with received google ID in our database.<br/> <br/>
+						If yes - download data from DB<br/> <br/>
+						If not - we're creating new user based on Google acc informations.
+					</p>
+				</section>
+				<h3>Signed in?</h3>
+				<section>
+					<p>
+						Yay! We've got your account created and downloaded from DB, but the data is unstable. 
+						As soon as you change page and make another request - data will be lost. 
+						Of course we've got really simple solution for the problem. <br/> <br/>
+						We could send you your account ID (not google ID - it was used only for authentication) as cookie. 
+						But that solution is dangerous. Someone would be able to steal the cookie and find out your account ID. 
+						Let's say... your account ID is improtant and that situation should not happen!
+					</p>
+				</section>
+				<h3>Security</h3>
+				<section>
+					<p>
+						We'll serialize the account on server side and send you a cookie with encrypted user-id. 
+						To your every next request browser will attach the cookie. Since we'll be having all signed
+						users serialized on the server side - we will decrypt your cookie, pull your ID out and look for it
+						among serialized accounts (deserialize) to send you back information. <br/> <br/>
+						Let's go to your profile page and try deserializing in real life.
+						<nav>
+							<ul>
+								<li><a href="/profile">Profile</a></li>
+							</ul>
+						</nav>
+
+					</p>
+				</section>
+			</div>
+
+			<!-- <pre>
 					<code>
 						<% if(user) { %>
 							<p><%= user %></p>
 						<% } %>
 
-						<% if(profile) { %>
-							<p><%= JSON.stringify(profile, null, ' ') %></p>
-						<% } %>
 
-						<% if(accessToken) { %>
-							<p><%= accessToken %></p>
-						<% } %>
+
 					</code>
-				</pre>
-			<nav>
-				<ul>
-					<li><a href="/profile">Profile</a></li>
-				</ul>
-			</nav>
-
-			<div id="example-basic">
-				<h3>Intro</h3>
-				<section>
-					<p>
-						This app aims to explain process of authentication (also
-						using authorization) by O'Auth 2.0
-					</p>
-				</section>
-				<h3>First step</h3>
-				<section>
-					<p>
-						Go to "Login" page to start
-					</p>
-				</section>
-			</div>
+				</pre> -->
 		</main>
 	</body>
 	<script>

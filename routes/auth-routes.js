@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 const memoryCache = require('../memoryCache');
+const secret = require('../config/keys');
 
 const notAuthCheck = (req, res, next) => {
 	if (req.user) res.redirect('/');
@@ -37,8 +38,8 @@ router.get(
 			user: req.user,
 			profile: memoryCache.get('googleProfile'),
 			accessToken: memoryCache.get('accessToken'),
+			client_id: secret.google.client_id,
 		});
-		// 	res.redirect('/profile');
 	}
 );
 

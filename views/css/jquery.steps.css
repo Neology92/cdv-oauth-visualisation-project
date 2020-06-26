@@ -44,6 +44,18 @@
 Wizard
 */
 
+.wizard pre code p,
+.wizard pre code {
+	font-size: 14px;
+	max-width: 90%;
+}
+
+.wizard pre {
+	word-wrap: break-word; /* IE 5.5-7 */
+	white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+	white-space: pre-wrap; /* current browsers */
+}
+
 .wizard > .steps {
 	position: relative;
 	display: block;
@@ -118,10 +130,15 @@ Wizard
 	background: #eee;
 	display: block;
 	margin: 0.5em;
-	min-height: 15em;
-	overflow: hidden;
+	min-height: 20em;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	position: relative;
 	width: auto;
+
+	box-shadow: inset 1px 1px 1px #2624aa;
+	background: #0400fc23;
+	font-size: 20px;
 }
 
 .wizard.vertical > .content {
