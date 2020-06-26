@@ -4,7 +4,7 @@
 	"description": "Simple O'auth 2.0 authorization explaining project.",
 	"main": "app.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "node ./app.js"
 	},
 	"author": "Oskar Legner",
 	"license": "MIT",
