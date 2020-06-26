@@ -28,6 +28,15 @@
 		</header>
 		<main>
 			<div id="stepper">
+				<% if (user) { %>
+				<h3>Home</h3>
+				<section>
+					<p>
+						You're logged in. <br />
+						If you want to go through explanations again - logout.
+					</p>
+				</section>
+				<%} else { %>
 				<h3>Intro</h3>
 				<section>
 					<p>
@@ -41,6 +50,7 @@
 						Go to "Login" page to start
 					</p>
 				</section>
+				<%} %>
 			</div>
 		</main>
 	</body>
