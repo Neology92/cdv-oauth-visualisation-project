@@ -32,6 +32,24 @@ header {
 	color: #333;
 }
 
+.thumbnail {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.profile-header {
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+}
+
+.profile-header div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
 .google-btn {
 	display: block;
 	width: 250px;
